@@ -1,6 +1,25 @@
+spring:
+  application:
+    name: gateway
 server:
-  port: 8761
+  port: 8080
 eureka:
   client:
-    registerWithEureka: false
-    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://registry:8761/eureka/
+  instance:
+    preferIpAddress: true
+zuul:
+  routes:
+    garden-garden:
+      path: /garden/**
+      serviceId: garden-garden
+      stripPrefix: false
+    garden-voucher:
+      path: /voucher/**
+      serviceId: garden-voucher
+      stripPrefix: false
+    garden-user:
+      path: /user/**
+      serviceId: garden-user
+      stripPrefix: false

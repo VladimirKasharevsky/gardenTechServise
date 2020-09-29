@@ -11,6 +11,6 @@ public class Controller {
 
     @GetMapping("/hello")
     public String home() {
-        return "This is TECH module";
+        return "This is GATEWAY module";
     }
 }
